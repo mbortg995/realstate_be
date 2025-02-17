@@ -15,6 +15,11 @@ const userSchema = new Schema({
     required: true,
     unique: true,
   },
+  building_id: {
+    type: Schema.Types.ObjectId,
+    ref: 'building',
+    required: true,
+  },
 }, {
   timestamps: true,
 });
