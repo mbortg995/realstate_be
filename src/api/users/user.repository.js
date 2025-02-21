@@ -1,8 +1,8 @@
 import userModel from './user.model.js';
 
 const userRepository = {
-  create: async (userData) => {
-    const user = await userModel.create(userData);
+  create: async (data) => {
+    const user = await userModel.create(data);
     return user;
   },
 
