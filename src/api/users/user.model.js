@@ -13,12 +13,11 @@ const userSchema = new Schema({
   name: {
     type: String,
     required: true,
-    unique: true,
   },
   building_id: {
     type: Schema.Types.ObjectId,
     ref: 'building',
-    required: true,
+    required: false,
   },
 }, {
   timestamps: true,

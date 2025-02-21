@@ -6,8 +6,6 @@ import keys from '../../../constants.configs.js';
 // Falta validar campos.
 
 const generateToken = (email) => {
-  const hashedPassword = hashSync(userData.password, 10);
-  userData.password = hashedPassword;
   const token = jwt.sign({ email }, keys.JWT_PRIVATE_KEY);
   return token;
 };
@@ -15,6 +13,8 @@ const generateToken = (email) => {
 const authService = {
   register: async (data) => {
     try {
+      const hashedPassword = hashSync(data.password, 10);
+      data.password = hashedPassword;
       const user = await userRepository.create(data);
       const token = generateToken(user.email);
 
@@ -26,6 +26,7 @@ const authService = {
       if (error.code === 11000) {
         throw new Error('Email y/o usuario ya registrado.');
       }
+      throw error;
     }
   },
   login: async (email, password) => {
@@ -35,6 +36,7 @@ const authService = {
     }
 
     const isSamePassword = compareSync(password, user.password);
+
     if (!isSamePassword) {
       throw new Error('La contraseña no coincide');
     }
