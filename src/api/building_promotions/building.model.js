@@ -18,6 +18,6 @@ const buildingSchema = new Schema({
   timestamps: true,
 });
 
-const buildingModel = model('Building', userSchema);
+const buildingModel = model('Building', buildingSchema);
 
 export default buildingModel;
