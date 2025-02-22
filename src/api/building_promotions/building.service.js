@@ -11,20 +11,20 @@ const validateBuildingFields = (building) => {
 };
 
 const buildingService = {
-  index: () => {
-    const buildings = buildingRepository.index();
+  index: async () => {
+    const buildings = await buildingRepository.index();
     return buildings;
   },
-  getById: (buildingId) => {
-    const building = buildingRepository.getById(buildingId);
+  getById: async (buildingId) => {
+    const building = await buildingRepository.getById(buildingId);
     if (!building) {
       throw new Error('Building not found');
     }
     return building;
   },
-  create: (building) => {
+  create: async (building) => {
     validateBuildingFields(building);
-    const createdBuilding = buildingRepository.create(building);
+    const createdBuilding = await buildingRepository.create(building);
     if (!createdBuilding) {
       throw new Error('Building not created');
     }

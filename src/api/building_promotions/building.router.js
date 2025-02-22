@@ -7,5 +7,4 @@ router.get('/', buildingController.index);
 router.get('/:buildingId', buildingController.getById);
 router.post('/', buildingController.create);
 
-
 export default router;
