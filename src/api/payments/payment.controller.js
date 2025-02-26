@@ -17,8 +17,13 @@ export const paymentController = {
       return res.status(500).json({ error: error.message });
     }
   },
-  update: async (req, res) => {
-
+  bulkUpdate: async (req, res) => {
+    try {
+      const payments = await paymentService.bulkUpdate(req.body);
+      return res.json(payments);
+    } catch (error) {
+      return res.status(500).json({ error: error.message });
+    }
   },
   delete: async (req, res) => {
 

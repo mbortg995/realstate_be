@@ -43,6 +43,12 @@ const paymentService = {
     return payments;
 
   },
+  bulkUpdate: async (bulkArray) => {
+    const bulkUpdateFilter
+    bulkArray.array.forEach(element => {
+
+    });
+  }
 }
 
 export default paymentService;
