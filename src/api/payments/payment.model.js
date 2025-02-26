@@ -5,16 +5,12 @@ const paymentSchema = new Schema({
     type: Number,
     required: true,
   },
-  payment_number: {
-    type: Number,
+  payment_date: {
+    type: Date,
     required: true,
   },
-  starting_month: {
-    type: Number,
-    required: true,
-  },
-  starting_year: {
-    type: Number,
+  status: {
+    type: String,
     required: true,
   },
   user_id: {

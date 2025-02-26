@@ -6,6 +6,10 @@ const paymentRepository = {
     const filter = { _id: userId }
     const payments = await paymentModel.find(filter).lean();
     return payments;
+  },
+  bulkCreate: async (bulkArrayPayment) => {
+    const payments = await paymentModel.insertMany(bulkArrayPayment);
+    return payments;
   }
 }
 
