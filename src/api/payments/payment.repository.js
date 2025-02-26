@@ -10,6 +10,12 @@ const paymentRepository = {
   bulkCreate: async (bulkArrayPayment) => {
     const payments = await paymentModel.insertMany(bulkArrayPayment);
     return payments;
+  },
+  bulkUpdate: async (status, ids) => {
+    const filter = { _id: { $in: ids } }
+    const update = { $set: { status: status } }
+    const bulkUpdate = await paymentModel.updateMany(filter, update);
+    return bulkUpdate;
   }
 }
 

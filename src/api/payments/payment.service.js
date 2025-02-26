@@ -44,10 +44,10 @@ const paymentService = {
 
   },
   bulkUpdate: async (bulkArray) => {
-    const bulkUpdateFilter
-    bulkArray.array.forEach(element => {
+    const { status, ids } = bulkArray;
 
-    });
+    const bulkUpdate = await paymentRepository.bulkUpdate(status, ids);
+    return bulkUpdate;
   }
 }
 
