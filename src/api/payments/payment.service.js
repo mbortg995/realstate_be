@@ -45,7 +45,6 @@ const paymentService = {
   },
   bulkUpdate: async (bulkArray) => {
     const { status, ids } = bulkArray;
-
     const bulkUpdate = await paymentRepository.bulkUpdate(status, ids);
     return bulkUpdate;
   }
