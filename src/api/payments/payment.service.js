@@ -47,6 +47,11 @@ const paymentService = {
     const { status, ids } = bulkArray;
     const bulkUpdate = await paymentRepository.bulkUpdate(status, ids);
     return bulkUpdate;
+  },
+  bulkDelete: async (bulkArray) => {
+    const { ids } = bulkArray;
+    const bulkDelete = await paymentRepository.bulkDelete(ids);
+    return bulkDelete;
   }
 }
 

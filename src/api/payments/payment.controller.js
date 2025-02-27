@@ -25,7 +25,12 @@ export const paymentController = {
       return res.status(500).json({ error: error.message });
     }
   },
-  delete: async (req, res) => {
-
-  },
+  bulkDelete: async (req, res) => {
+    try {
+      const payments = await paymentService.bulkDelete(req.body);
+      return res.json(payments);
+    } catch (error) {
+      return res.status(500).json({ error: error.message });
+    }
+  }
 }
