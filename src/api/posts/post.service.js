@@ -18,8 +18,6 @@ const postService = {
   create: async ({ post, userId, buildingId, images }) => {
     validatePostFields(post);
 
-    console.log(images);
-
     const newPost = {
       ...post,
       user_id: userId,
