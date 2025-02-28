@@ -1,4 +1,3 @@
-import e from 'express';
 import { model, Schema } from 'mongoose';
 
 const postSchema = new Schema({

@@ -29,7 +29,8 @@ const postService = {
   },
   update: async (postId, post) => {
     validatePostFields(post);
-
+    const updatedAt = new Date();
+    post.updatedAt = updatedAt;
     const updatedPost = await postRepository.update(postId, post);
     return updatedPost;
   },
