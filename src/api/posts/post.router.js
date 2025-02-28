@@ -1,19 +1,7 @@
 import { Router } from 'express';
 import { postController } from './post.controller.js';
 import authMiddleware from '../middleware/auth.middleware.js';
-import path from 'path';
-import multer from 'multer';
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'public/images/');
-  },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname));
-  }
-});
-
-const upload = multer({ storage: storage });
+import upload from '../middleware/images.middleware.js';
 
 const router = Router();
 
