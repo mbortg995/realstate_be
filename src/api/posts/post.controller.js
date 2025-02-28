@@ -11,9 +11,17 @@ export const postController = {
   },
   create: async (req, res) => {
     try {
-      const post = await postService.create(req.body, req.user._id, req.user.building_id);
+      const post = await postService.create({
+        post: req.body,
+        userId: req.user._id,
+        buildingId: req.user.building_id,
+        images: req.files.map((file) => {
+          return file.path;
+        })
+      });
       return res.json(post);
     } catch (error) {
+      console.log(error);
       return res.status(500).json({ error: error.message });
     }
   },

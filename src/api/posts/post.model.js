@@ -14,6 +14,9 @@ const postSchema = new Schema({
     ref: 'users',
     required: true,
   },
+  images: {
+    type: [String],
+  }
 }, {
   timestamps: true,
 });

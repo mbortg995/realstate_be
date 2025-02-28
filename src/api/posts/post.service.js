@@ -15,13 +15,16 @@ const postService = {
     const posts = await postRepository.index(buildingId);
     return posts;
   },
-  create: async (post, userId, buildingId) => {
+  create: async ({ post, userId, buildingId, images }) => {
     validatePostFields(post);
+
+    console.log(images);
 
     const newPost = {
       ...post,
       user_id: userId,
       building_id: buildingId,
+      images: images,
     };
 
     const createdPost = await postRepository.create(newPost);
