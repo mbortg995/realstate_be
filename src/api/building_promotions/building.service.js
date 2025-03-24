@@ -1,7 +1,7 @@
 import buildingRepository from './building.repository.js';
 
 const validateBuildingFields = (building) => {
-  const requiredFields = ['name', 'adress', 'housing_number'];
+  const requiredFields = ['name', 'address', 'housing_number'];
 
   for (const field of requiredFields) {
     if (!building[field]) {

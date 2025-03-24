@@ -11,11 +11,12 @@ export const postController = {
   },
   create: async (req, res) => {
     try {
+      console.log(req.files);
       const post = await postService.create({
         post: req.body,
         userId: req.user._id,
         buildingId: req.user.building_id,
-        images: req.files.map((file) => {
+        images: !req.files ? [] : req.files.map((file) => {
           return file.path;
         })
       });
