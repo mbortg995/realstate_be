@@ -1,10 +1,17 @@
 import postService from './post.service.js';
+import keys from '../../../constants.configs.js';
+
+
 
 export const postController = {
   index: async (req, res) => {
     try {
       const posts = await postService.index(req.user.building_id);
-      return res.json(posts);
+      const mappedPosts = posts.map((post) => {
+        post.images = post.images.map((image) => `${keys.SERVER_URL}${image}`);
+        return post;
+      })
+      return res.json(mappedPosts);
     } catch (error) {
       return res.status(500).json({ error: error.message });
     }

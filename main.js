@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(cors({ origin: true }));
 app.use('/api', router);
-app.use(express.static('public'));
+app.use('/public', express.static('public'));
 connectToDatabase();
 
 app.listen(PORT, () => {
