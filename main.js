@@ -3,8 +3,10 @@ import express from 'express';
 import cors from 'cors';
 import { connectToDatabase } from './database.js';
 import router from './src/api/router.js';
+import keys from './constants.configs.js';
 
-const PORT = 3000;
+const { PORT } = keys;
+
 const app = express();
 app.use(express.json());
 app.use(cors({ origin: true }));

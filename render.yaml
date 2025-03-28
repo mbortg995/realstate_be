@@ -11,10 +11,6 @@ services:
         sync: false
       - key: PORT
         value: 8080
-      - key: JWT_PRIVATE_KEY
-        value: "FullstackPartTime2024"
-      - key: SERVER_URL
-        value: "http://localhost:3000/"
     healthCheckPath: /
     autoDeploy: true
     plan: free
