@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: RealStateManager
+    name: realstate_be
     env: node
     buildCommand: npm install
     startCommand: node main.js
