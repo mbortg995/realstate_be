@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: realstate-be
+    env: node
+    buildCommand: npm install
+    startCommand: node main.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+      - key: PORT
+        value: 8080
+    healthCheckPath: /
+    autoDeploy: true
+    plan: free
+
+databases:
+  - name: mongoDB_miguel_personal
+    databaseName: realstate_be
+    plan: free
+    ipAllowList: []
